@@ -1,0 +1,53 @@
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(resources/img1.jpg);
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+canvas {
+  display: block;
+}
+
+
+.game-over-rectangle {
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 100px;
+  background-color: rgba(145, 52, 137, 0.7);
+  
+  border-radius: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over-text {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.progress-bar {
+  width: 400px;
+  height: 20px;
+  background-color: rgb(159, 49, 49);
+  margin: 20px auto;
+}
+
+.progress-bar-filled {
+  height: 100%;
+  background-color: rgb(73, 170, 73);
+}
