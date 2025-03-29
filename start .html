@@ -5,108 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asteroid Shooter Game</title>
-    <link rel="stylesheet" href="style.css">
-
     
-    <style>
-        /* General body styles */
-        body {
-            background-image: url(resources/img2.jpg);
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            margin: 0;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            font-size: 22px;
-        }
-
-        #head {
-            font-family: 'Arial', sans-serif;
-            font-size: 37px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        #gameIntro {
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        #discription {
-
-            font-size: 15px;
-            font-weight: 100;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-
-            padding: 10px;
-            word-wrap: break-word;
-
-
-
-
-        }
-
-      
-        #startButton {
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            background-color: #f39c12;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        /* Button hover effect */
-        #startButton:hover {
-            background-color: #e67e22;
-            transform: scale(1.1);
-        }
-
-        /* Button active effect */
-        #startButton:active {
-            background-color: #d35400;
-            transform: scale(1);
-        }
-
-    
-        footer {
-            position: fixed;
-            bottom: 10px;
-            font-size: 14px;
-            color: #dcdcdc;
-            text-align: center;
-        }
-
-        footer a {
-            color: #f39c12;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="startpage.css">
 </head>
 
 <body>
-    <!-- Game Introduction Section -->
+  
     <div id="gameIntro">
         <p id="head">Welcome to the Asteroid Shooter Game</p>
-
 
         <p id="discription">In the Asteroid Shooter Game, you control a fighter spaceship on a mission to destroy
             asteroids and survive for as long as possible. The game challenges your speed, precision, and strategic
@@ -117,32 +23,16 @@
             temporary shields to protect you from collisions. Time your shots and movements carefully, because every
             second counts in this thrilling space adventure!</p>
 
-
-
-
         <h3>Click the button below to start the game and begin your adventure!</h3>
     </div>
 
-    <!-- Start Button -->
+       <button id="startButton">Start Game</button>
 
-
-    <button id="startButton">Start Game</button>
-
-    <!-- Footer Section -->
-    <footer>
+  <footer>
         <p>&copy; 2025 Asteroid Shooter Game. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </footer>
 
-    <script>
-        // Start button functionality to navigate to the game page
-        const startButton = document.getElementById('startButton');
-
-        startButton.addEventListener('click', () => {
-            window.location.href = "index.html";  // Navigate 
-        });
-
-        
-    </script>
+   <script src="startpage.js"></script>
 </body>
 
 </html>

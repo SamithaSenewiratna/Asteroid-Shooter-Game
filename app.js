@@ -4,13 +4,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 
-// Load sound effects
+// sound effects
 const shootSound = new Audio('sounds/shoot.mp3');
 const explosionSound = new Audio('sounds/epic-game-music-by-kris-klavenes-3-mins-49771.mp3');
 explosionSound.loop = true;
 const gameOverSound = new Audio('sounds/negative_beeps-6008.mp3');
 
-// Optional: Set volume (0.0 to 1.0)
+
 shootSound.volume = 1;
 explosionSound.volume = 0.01;
 gameOverSound.volume = 0.7;
@@ -22,9 +22,9 @@ const bullets = [];
 const asteroids = [];
 let gameOver = false;
 let score = 0;
-let doubleBulletTriggered = false; // Flag to track double bullet shooting
-let gameFastMode = false;  // Flag to track fast mode status
-let autoShootInterval; // Variable for the shooting interval
+let doubleBulletTriggered = false; 
+let gameFastMode = false;  
+let autoShootInterval; //  shooting interval
 
 // Load player image
 const playerImg = new Image();
@@ -54,17 +54,16 @@ function shootBullet2() {
   const bulletWidth = 5;
   const bulletHeight = 10;
 
-  // Bullet on the left side of the player
   bullets.push({
-    x: player.x + bulletWidth / 2,  // Align left side bullet near the player's left edge
+    x: player.x + bulletWidth / 2,  
     y: player.y,
     width: bulletWidth,
     height: bulletHeight
   });
 
-  // Bullet on the right side of the player
+
   bullets.push({
-    x: player.x + player.width - bulletWidth / 2 - 2.5,  // Align right side bullet near the player's right edge
+    x: player.x + player.width - bulletWidth / 2 - 2.5,  
     y: player.y,
     width: bulletWidth,
     height: bulletHeight
@@ -75,7 +74,7 @@ function drawBullets() {
   ctx.fillStyle = 'yellow';
   for (let i = bullets.length - 1; i >= 0; i--) {
     const bullet = bullets[i];
-    bullet.y -= gameFastMode ? 10 : 5;  // Faster bullet speed in fast mode
+    bullet.y -= gameFastMode ? 10 : 5;  //  fast mode
     ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     if (bullet.y < 0) bullets.splice(i, 1);
   }
@@ -89,14 +88,15 @@ function spawnAsteroid() {
   asteroids.push({ x: Math.random() * canvas.width, y: -size, width: size, height: size });
 }
 
+
+
+
+
 function drawAsteroids() {
-
-
-
 
   for (let i = asteroids.length - 1; i >= 0; i--) {
     const asteroid = asteroids[i];
-    asteroid.y += gameFastMode ? 4 : 2;  // Faster falling speed in fast mode
+    asteroid.y += gameFastMode ? 4 : 2;  // Faster falling  fast mode
 
     if (asteroidImg.complete) {
       ctx.drawImage(asteroidImg, asteroid.x, asteroid.y, asteroid.width, asteroid.height);
@@ -108,6 +108,9 @@ function drawAsteroids() {
     if (asteroid.y > canvas.height) asteroids.splice(i, 1);
   }
 }
+
+
+
 
 function checkCollisions() {
 
@@ -132,9 +135,7 @@ function checkCollisions() {
         bullet.y + bullet.height > asteroid.y
       ) {
 
-
-
-        explosionSound.play(); // Play explosion sound
+        explosionSound.play(); 
 
 
         asteroids.splice(i, 1);
@@ -146,27 +147,29 @@ function checkCollisions() {
   }
 }
 
+
+
 function gameLoop() {
 
 
   if (gameOver) {
-    // Stop all ongoing sounds
+   
     shootSound.pause();
     explosionSound.pause();
     gameOverSound.pause();
 
-    // Reset sounds to the beginning (in case the game restarts)
+   
     shootSound.currentTime = 0;
     explosionSound.currentTime = 0;
     gameOverSound.currentTime = 0;
 
-    // Play the game-over sound once
+    
     gameOverSound.play();
     // Game Over logic
-    let rectWidth = 800;  // Width of the rectangle
-    let rectHeight = 100; // Height of the rectangle
-    const textX = canvas.width / 2; // Center the rectangle horizontally
-    const textY = canvas.height / 2; // Center the rectangle vertically
+    let rectWidth = 800;  
+    let rectHeight = 100; 
+    const textX = canvas.width / 2; 
+    const textY = canvas.height / 2; 
 
     ctx.fillStyle = 'rgba(145, 52, 137, 0.7)';
 
@@ -175,6 +178,8 @@ function gameLoop() {
     ctx.font = '30px Tahoma';
     ctx.textAlign = 'center';
     ctx.fillText('👽 Game Over! 🚀 Final Score: ' + score, textX, textY);
+    
+
     return;
   }
 
@@ -196,7 +201,7 @@ function gameLoop() {
   const borderRadius = 10;
 
 
-  // Draw background with rounded corners
+
   ctx.fillStyle = 'gray';
   ctx.beginPath();
   ctx.roundRect(progressBarX, progressBarY, progressBarWidth, progressBarHeight, borderRadius);
